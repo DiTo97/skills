@@ -1,6 +1,6 @@
 # skills
 
-DiTo97's directory of high-quality standalone skills and plugins for Claude Code.
+Agent Skills repository.
 
 ## Repository layout
 
@@ -16,7 +16,7 @@ Install a standalone skill by copying its folder into one of these locations:
 
 Current standalone skills:
 
-- `italy-pension-funds-planner` — Italy-only pension-fund contribution planning with shared rules and per-fund references.
+- `pension-funds-planner` — Pension-fund contribution planning with Italy/Italia support and a bundled Fondo Cometa reference.
 
 ## Plugins
 

@@ -1,10 +1,10 @@
 ---
-name: italy-pension-funds-planner
-description: Plan contributions for Italian complementary pension funds without exceeding the annual tax-deductible cap. Use whenever the user mentions Fondo Cometa or another Italian fondo pensione, previdenza complementare, pensione integrativa, deduzione, RAL, bonus or variabile, tredicesima, employer contribution thresholds, contribution changes, or wants to stay just under the cap. This skill supports Italy only for now and should be used even when the user does not know which fund rules matter yet.
-argument-hint: [funds, salary, and contribution scenario]
+name: pension-funds-planner
+description: Plan contributions for complementary pension funds without exceeding the annual tax-deductible cap. Use whenever the user mentions Fondo Cometa or another fondo pensione, previdenza complementare, pensione integrativa, deduzione, RAL, bonus or variabile, tredicesima, employer contribution thresholds, contribution changes, or wants to stay just under the cap. Check `references/funds/index.md` for supported countries before proceeding.
+argument-hint: "funds, salary, and contribution scenario"
 ---
 
-# Italy Pension Funds Planner
+# Pension Funds Planner
 
 Help users plan contributions across one or more Italian complementary pension funds so they use the annual deductible headroom efficiently without drifting into unwanted non-deductible overflow.
 
@@ -12,20 +12,20 @@ Treat this as practical planning support, not legal or tax advice. Make assumpti
 
 ## Scope and routing
 
-1. Start by checking whether the case is about Italy.
-2. If the user asks about a non-Italian pension fund or another country's tax system, stop and say this skill is out of scope for now and is a future TODO.
+1. Start by checking whether the case is about a supported country in `references/funds/index.md`.
+2. If the user asks about a pension fund or tax system from an unsupported country, stop and say this skill is out of scope for now and is a future TODO.
 3. If the user has both Italian and non-Italian plans, calculate only the Italian portion and clearly exclude the foreign plan from the Italian deductible-cap math.
 4. Read `references/italy-wide.md` for the shared Italy-wide rules.
-5. Read `references/funds/index.md` to map the user's fund name to a bundled reference.
+5. Read `references/funds/index.md` to map the user's country and fund name to a bundled reference.
 6. If a supported fund is matched, read that fund file before recommending a rate.
 7. If the fund is Italian but does not have a bundled reference yet, continue in generic Italy mode, ask the user for fund-specific thresholds and deadlines, and say that adding a reference for that fund is still a TODO.
 
 ## Language
 
-- Default to English.
-- Accept Italian inputs naturally.
+- Do not assume the user will write in English; users may ask in English or in the local language for the supported country.
+- Accept both English and Italian inputs naturally for Italy/Italia cases.
 - Preserve Italian payroll and pension terms such as `RAL`, `variabile`, `tredicesima`, `deduzione`, `contribuzione datoriale`, `minimo contrattuale`, or `superminimo`.
-- If the user is clearly more comfortable in Italian, it is fine to answer in Italian.
+- Mirror the user's language when practical; if the user is clearly more comfortable in Italian, it is fine to answer in Italian.
 
 ## What to optimize for
 
